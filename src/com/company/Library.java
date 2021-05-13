@@ -1,7 +1,6 @@
 package com.company;
 
 import java.io.FileReader;
-import java.lang.reflect.Field;
 import java.util.Vector;
 
 import org.json.simple.JSONArray;
@@ -30,16 +29,27 @@ public class Library {
         books.add(book);
     }
 
+    // Takes in an Object class object and returns a Book object with its corresponding values, every book has a title
+    // and author however some book will have a boolean read value along with time stamps.
+
     private Book readObject(Object original){
         JSONObject object = (JSONObject) original;
         Book book = new Book(object.get("title").toString(), object.get("author").toString());
         return book;
     }
 
+    // Method prints a list of all books in the library, with all relevant information available.
+
     void allBooks(){
         for (Book book: books){
             System.out.println(book.toString());
         }
+    }
+
+    // Method saves the full library to the txt file.
+
+    void save(){
+
     }
 
 }
